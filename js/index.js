@@ -20,7 +20,7 @@ plus.onclick = () => {
 }
 
 minus.onclick = () => {
-    momentalniHodnota += textPole.value + "+"
+    momentalniHodnota += textPole.value + "-"
     // vypisuje do labelu aktuální hodnotu
     hodnota.innerHTML = momentalniHodnota
     textPole.value = ""
@@ -34,3 +34,5 @@ vysledek.onclick = () => {
     textPole.value = result
     momentalniHodnota = ""
 }
+
+// .split(/[\+\-\*\/]/)
