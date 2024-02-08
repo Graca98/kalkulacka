@@ -1,3 +1,57 @@
-.test {
-    color: red;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+#kalkulacka {
+    margin: 10px;
+    /* width: 300px; */
+    max-width: 600px;
+    min-width: 300px;
+    padding: 10px;
+    border: 1px solid black;
+
+    
+}
+
+/* .container {
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px;
+    grid-template-rows: 80px auto 80px; 
+    column-gap: 10px;
+    row-gap: 15px;
+  } */
+
+#kalkulackaForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#momentalniHodnota {
+    color: rgb(124, 124, 124);
+    font-size: small;
+    margin-bottom: 3px;
+}
+
+#pole {
+    padding: 6px 5px;
+    max-width: 100%;
+}
+
+.calc {
+    margin: 10px 0px;
+    padding: 10px 15px;
+    color: white;
+    background-color: gray;
+    border: 0;
+    border-radius: 15px;
+
+    width: 100px;
+    min-width: 50px;
 }
