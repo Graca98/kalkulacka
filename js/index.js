@@ -25,12 +25,14 @@ textPole.addEventListener('keydown', function(event) {
 
     //! ======== Nefunguje. =============
     //todo Je potřeba vymyslet script, který zabraní spamování operátorů do inputu (povolit pouze jeden) a poté ho uloží do historie a smaže z inputu jako to funguje při klakání na tlačítka.
-    if (/[\+\-\*\/%]/.test(event.key)) {
+    if (/[\+\-\*\/%]/.test(event.key) && textPole.value !== /[\+\-\*\/%]/.test(event.key)) {
         console.log("Zmačkl jsi " + event.key);
         if (textPole.value.match(/[\+\-\*\/%]/)) {
             return
         } else {
+            event.preventDefault()
             pridejOperator(event.key)
+            // textPole.value = ""
         }
 
     }
@@ -41,6 +43,16 @@ textPole.addEventListener('keydown', function(event) {
 function pridejOperator(operator) {
     if (textPole.value !== "") {
         momentalniHodnota += textPole.value + operator
+        // vypisuje do labelu aktuální hodnotu
+        hodnota.innerHTML = momentalniHodnota
+        console.log(1);
+        textPole.value = ""
+        console.log(2);
+    }
+}
+function pridejOperatorKlavesa() {
+    if (textPole.value !== "") {
+        momentalniHodnota += textPole.value
         // vypisuje do labelu aktuální hodnotu
         hodnota.innerHTML = momentalniHodnota
         console.log(1);
