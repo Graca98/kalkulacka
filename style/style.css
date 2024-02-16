@@ -20,13 +20,11 @@ input::-moz-focus-inner {
     
 }
 
-/* .container {
+.container {
     display: grid;
-    grid-template-columns: 150px 150px 150px 150px;
+    grid-template-columns: 150px auto;
     grid-template-rows: 80px auto 80px; 
-    column-gap: 10px;
-    row-gap: 15px;
-  } */
+  }
 
 #kalkulackaForm {
     display: flex;
