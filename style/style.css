@@ -3,10 +3,6 @@
   padding: 0;
 }
 
-body {
-
-}
-
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
