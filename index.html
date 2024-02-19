@@ -7,58 +7,75 @@
     <title>Kalkulačka</title>
   </head>
   <body>
-    <div id="kalkulacka">
-      <form action="" id="kalkulackaForm">
-        <span id="momentalniHodnota"></span>
-        <input type="text" id="pole" required />
-      </form>
+      <div id="kalkulacka">
+    <!--todo Předělat form do gridu -->
+    
+    <div class="container">
+        <div class="item item-input">
+            <form action="" id="kalkulackaForm">
+              <span id="momentalniHodnota"></span>
+              <input type="text" id="pole" required />
+            </form>
+            
+        </div>
+        <div class="item">
+            <button id="procento" class="calc jinaBarva" onclick="pridejOperator('%')">%</button>
 
-      <!--todo ===============Pole -->
-      <div>
-        <button id="osm" class="calc" onclick="pridejCislo(8)">8</button>
-        <button id="devet" class="calc" onclick="pridejCislo(9)">9</button>
-        <button id="krat" class="calc" onclick="pridejOperator('*')">*</button>
-        <button id="ctyri" class="calc" onclick="pridejCislo(4)">4</button>
-        <button id="pet" class="calc" onclick="pridejCislo(5)">5</button>
-        <button id="sest" class="calc" onclick="pridejCislo(6)">6</button>
-        <button id="minus" class="calc" onclick="pridejOperator('-')">-</button>
-        <button id="jedna" class="calc" onclick="pridejCislo(1)">1</button>
-        <button id="dva" class="calc" onclick="pridejCislo(2)">2</button>
-        <button id="tri" class="calc" onclick="pridejCislo(3)">3</button>
-        <button id="plus" class="calc" onclick="pridejOperator('+')">+</button>
-        <button id="nula" class="calc" onclick="pridejCislo(0)">0</button>
-        <button id="vysledek" class="calc" onclick="vypocitej()">=</button>
-        <button id="procento" class="calc" onclick="pridejOperator('%')">
-          %
-        </button>
-        <button id="deleno" class="calc" onclick="pridejOperator('/')">
-          /
-        </button>
-        <button id="reset" class="calc" onclick="reset()">C</button>
-        <button id="sedm" class="calc" onclick="pridejCislo(7)">7</button>
-      </div>
-
-      <div class="container">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item item-2"></div>
-        <div class="item item-3"></div>
-        <div class="item item-4"></div>
-        <div class="item item-5"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+        </div>
+        <div class="item">
+            <button id="reset" class="calc jinaBarva" onclick="reset()">C</button>
+            
+        </div>
+        <div class="item">
+            Del
+        </div>
+        <div class="item">
+            <button id="deleno" class="calc jinaBarva" onclick="pridejOperator('/')">/</button>
+        </div>
+        <div class="item">
+            <button id="sedm" class="calc" onclick="pridejCislo(7)">7</button>
+        </div>
+        <div class="item">
+            <button id="osm" class="calc" onclick="pridejCislo(8)">8</button>
+        </div>
+        <div class="item">
+            <button id="devet" class="calc" onclick="pridejCislo(9)">9</button>
+        </div>
+        <div class="item">
+            <button id="krat" class="calc jinaBarva" onclick="pridejOperator('*')">*</button>
+        </div>
+        <div class="item">
+            <button id="ctyri" class="calc" onclick="pridejCislo(4)">4</button>
+        </div>
+        <div class="item">
+            <button id="pet" class="calc" onclick="pridejCislo(5)">5</button>
+        </div>
+        <div class="item">
+            <button id="sest" class="calc" onclick="pridejCislo(6)">6</button>
+        </div>
+        <div class="item">
+            <button id="minus" class="calc jinaBarva" onclick="pridejOperator('-')">-</button>
+        </div>
+        <div class="item">
+            <button id="jedna" class="calc" onclick="pridejCislo(1)">1</button>
+        </div>
+        <div class="item">
+            <button id="dva" class="calc" onclick="pridejCislo(2)">2</button>
+        </div>
+        <div class="item">
+            <button id="tri" class="calc" onclick="pridejCislo(3)">3</button>
+        </div>
+        <div class="item">
+            <button id="plus" class="calc jinaBarva" onclick="pridejOperator('+')">+</button>
+        </div>
+        <div class="item">+/-</div>
+        <div class="item">
+          <button id="nula" class="calc" onclick="pridejCislo(0)">0</button>
+        </div>
+        <div class="item">,</div>
+        <div class="item">
+            <button id="vysledek" class="calc jinaBarva" onclick="vypocitej()">=</button>
+        </div>
       </div>
     </div>
 
