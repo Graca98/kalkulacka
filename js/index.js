@@ -4,9 +4,7 @@ let hodnota = document.getElementById("momentalniHodnota")
 let momentalniHodnota = ""
 
 function looseJsonParse(obj) {
-    console.log("žačínám počítat: " + obj);
     let nahradCarku = obj.replaceAll(",", ".")
-    console.log("zpracoval jsem: " + nahradCarku);
     return eval?.(`"use strict";(${nahradCarku})`);
 }
 
@@ -22,10 +20,7 @@ textPole.addEventListener('keydown', function (event) {
         vypocitej()
     }
 
-    //! ======== Nefunguje. =============
-    //todo Je potřeba vymyslet script, který zabraní spamování operátorů do inputu (povolit pouze jeden) a poté ho uloží do historie a smaže z inputu jako to funguje při klakání na tlačítka.
     if (/[\+\-\*\/%]/.test(event.key) && textPole.value !== /[\+\-\*\/%]/.test(event.key)) {
-        console.log("Zmačkl jsi " + event.key);
         if (textPole.value.match(/[\+\-\*\/%]/)) {
             return
         } else {
@@ -37,17 +32,33 @@ textPole.addEventListener('keydown', function (event) {
 
 });
 
+function pridejCislo(cislo) {
+    textPole.value += cislo
+}
+
+// Pokud input.value není prázdný, přidá se aktuální číslo + operátor
+// Pokud je momentalniHodnota = "", tak se přidá 0 + operátor
 function pridejOperator(operator) {
     if (textPole.value !== "") {
             momentalniHodnota += textPole.value + operator
             // vypisuje do labelu aktuální hodnotu
             hodnota.textContent = momentalniHodnota
             textPole.value = ""
+    } else if (momentalniHodnota === "") {
+        momentalniHodnota += 0 + operator
+        hodnota.textContent = momentalniHodnota
+        textPole.value = ""
     }
 }
 
-function pridejCislo(cislo) {
-    textPole.value += cislo
+// Vytvoření funkce na tlačítko, která funguje jako backspace
+function backspaceBtn() {
+    textPole.value = textPole.value.substring(0, textPole.value.length - 1);
+}
+
+// Převede číslo na negativní a obráceně
+function prevedCislo() {
+    textPole.value = textPole.value - (textPole.value * 2)
 }
 
 function reset() {
@@ -58,14 +69,12 @@ function reset() {
 
 function vypocitej() {
     if (textPole.value !== "") {
-            console.log("Provádím jen tuto možnost");
             momentalniHodnota += textPole.value
             hodnota.textContent = momentalniHodnota
     
             let result = looseJsonParse(momentalniHodnota)
             textPole.value = result
             momentalniHodnota = ""
-
 
     } else {
         console.log("Textové pole je prázdné! Napiš něco..");

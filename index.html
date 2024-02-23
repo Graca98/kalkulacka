@@ -11,7 +11,7 @@
       <!--todo Předělat form do gridu -->
       <form action="" id="kalkulackaForm">
         <span id="momentalniHodnota"></span>
-        <input type="text" id="pole" required />
+        <input type="text" id="pole" placeholder=0 required />
       </form>
 
       <div class="container">
@@ -29,7 +29,7 @@
           <button id="reset" class="calc jinaBarva" onclick="reset()">C</button>
         </div>
         <div class="item">
-          <button id="" class="calc jinaBarva" onclick="">Del - dodělat</button>
+          <button id="backspaceBtn" class="calc jinaBarva" onclick="backspaceBtn()">Del</button>
         </div>
         <div class="item">
           <button
@@ -95,13 +95,13 @@
           </button>
         </div>
         <div class="item">
-          <button id="" class="calc" onclick="">+/- dodělat</button>
+          <button id="" class="calc" onclick="prevedCislo()">+/-</button>
         </div>
         <div class="item">
           <button id="nula" class="calc" onclick="pridejCislo(0)">0</button>
         </div>
         <div class="item">
-          <button id="" class="calc" onclick="">, - dodělat</button>
+          <button id="" class="calc" onclick="pridejCislo(',')">,</button>
         </div>
         <div class="item">
           <button id="vysledek" class="calc jinaBarva" onclick="vypocitej()">

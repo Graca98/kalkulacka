@@ -11,15 +11,13 @@ input::-moz-focus-inner {
 
 #kalkulacka {
   margin: 30px;
-  /* width: 300px; */
   max-width: 530px;
-  /* min-width: 300px; */
   padding: 20px;
   border-radius: 15px 15px;
   box-shadow: 4px 4px 10px gray;
-  /* border: 1px solid black; */
-
-  background-image: url("/svg/blurry-gradient-blue.svg");
+  
+  background: rgb(45,157,166);
+  background: linear-gradient(90deg, rgba(45,157,166,1) 12%, rgba(61,209,145,1) 71%);
 }
 
 #momentalniHodnota {
