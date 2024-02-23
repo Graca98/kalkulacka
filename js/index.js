@@ -4,7 +4,10 @@ let hodnota = document.getElementById("momentalniHodnota")
 let momentalniHodnota = ""
 
 function looseJsonParse(obj) {
-    return eval?.(`"use strict";(${obj})`);
+    console.log("žačínám počítat: " + obj);
+    let nahradCarku = obj.replaceAll(",", ".")
+    console.log("zpracoval jsem: " + nahradCarku);
+    return eval?.(`"use strict";(${nahradCarku})`);
 }
 
 // Zabranuje použití všech kláves krom čísel a +,-,*,...
@@ -36,12 +39,10 @@ textPole.addEventListener('keydown', function (event) {
 
 function pridejOperator(operator) {
     if (textPole.value !== "") {
-        momentalniHodnota += textPole.value + operator
-        // vypisuje do labelu aktuální hodnotu
-        hodnota.innerHTML = momentalniHodnota
-        console.log(1);
-        textPole.value = ""
-        console.log(2);
+            momentalniHodnota += textPole.value + operator
+            // vypisuje do labelu aktuální hodnotu
+            hodnota.textContent = momentalniHodnota
+            textPole.value = ""
     }
 }
 
@@ -51,32 +52,42 @@ function pridejCislo(cislo) {
 
 function reset() {
     momentalniHodnota = ""
-    hodnota.innerHTML = ""
+    hodnota.textContent = ""
     textPole.value = ""
 }
 
 function vypocitej() {
     if (textPole.value !== "") {
-        if (textPole.value.match(/\+\-\*\//)) {
-            console.log("ted");
-            momentalniHodnota = textPole.value
-            hodnota.innerHTML = momentalniHodnota
-
+            console.log("Provádím jen tuto možnost");
+            momentalniHodnota += textPole.value
+            hodnota.textContent = momentalniHodnota
+    
             let result = looseJsonParse(momentalniHodnota)
             textPole.value = result
             momentalniHodnota = ""
-        }
 
-        momentalniHodnota += textPole.value
-        hodnota.innerHTML = momentalniHodnota
 
-        let result = looseJsonParse(momentalniHodnota)
-        textPole.value = result
-        momentalniHodnota = ""
     } else {
         console.log("Textové pole je prázdné! Napiš něco..");
     }
 }
+
+// function vypocitej() {
+//     if (textPole.value === "") {
+//         console.log("Textové pole je prázdné! Napiš něco..");
+//         return;
+//     }
+
+//     let vstup = textPole.value.replace(",", "."); // Nahradí čárku tečkou pro správný formát čísla
+//     if (vstup.match(/[\+\-\*\/]/)) { // Zjednodušený regex pro vyhledávání operátorů
+//         console.log("ted"); // Tato zpráva může být pro odstraňování, pokud již není potřeba
+//     }
+
+//     let result = looseJsonParse(vstup); // Vypočítá výraz
+//     hodnota.innerHTML = result; // Zobrazí výsledek přímo, místo použití meziproměnné
+//     textPole.value = result; // Nastaví výsledek zpět do textového pole
+// }
+
 
 
 // Reviewing your JavaScript code reveals several areas for improvement, including best practices, security considerations, and functionality bugs. Here's a detailed breakdown:
