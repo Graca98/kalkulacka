@@ -20,8 +20,11 @@ textPole.addEventListener('keydown', function (event) {
         vypocitej()
     }
 
-    if (/[\+\-\*\/%]/.test(event.key) && textPole.value !== /[\+\-\*\/%]/.test(event.key)) {
+    if (/[\+\-\*\/%\,]/.test(event.key) && textPole.value !== /[\+\-\*\/%\,]/.test(event.key)) {
         if (textPole.value.match(/[\+\-\*\/%]/)) {
+            return
+            //todo ORPAVIT ZAKÁZANÍ VÍCE ČÁREK
+        } else if (textPole.value.match(/,/g) && textPole.value !== /,/g.test(event.key)) {
             return
         } else {
             event.preventDefault()
@@ -33,6 +36,13 @@ textPole.addEventListener('keydown', function (event) {
 });
 
 function pridejCislo(cislo) {
+    if (cislo === ",") {
+        if (textPole.value === "") {
+            textPole.value = 0 + ","
+            return
+        }
+
+    }
     textPole.value += cislo
 }
 
@@ -40,10 +50,10 @@ function pridejCislo(cislo) {
 // Pokud je momentalniHodnota = "", tak se přidá 0 + operátor
 function pridejOperator(operator) {
     if (textPole.value !== "") {
-            momentalniHodnota += textPole.value + operator
-            // vypisuje do labelu aktuální hodnotu
-            hodnota.textContent = momentalniHodnota
-            textPole.value = ""
+        momentalniHodnota += textPole.value + operator
+        // vypisuje do labelu aktuální hodnotu
+        hodnota.textContent = momentalniHodnota
+        textPole.value = ""
     } else if (momentalniHodnota === "") {
         momentalniHodnota += 0 + operator
         hodnota.textContent = momentalniHodnota
@@ -69,12 +79,12 @@ function reset() {
 
 function vypocitej() {
     if (textPole.value !== "") {
-            momentalniHodnota += textPole.value
-            hodnota.textContent = momentalniHodnota
-    
-            let result = looseJsonParse(momentalniHodnota)
-            textPole.value = result
-            momentalniHodnota = ""
+        momentalniHodnota += textPole.value
+        hodnota.textContent = momentalniHodnota
+
+        let result = looseJsonParse(momentalniHodnota)
+        textPole.value = result
+        momentalniHodnota = ""
 
     } else {
         console.log("Textové pole je prázdné! Napiš něco..");
