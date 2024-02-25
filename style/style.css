@@ -15,9 +15,13 @@ input::-moz-focus-inner {
   padding: 20px;
   border-radius: 15px 15px;
   box-shadow: 4px 4px 10px gray;
-  
-  background: rgb(45,157,166);
-  background: linear-gradient(90deg, rgba(45,157,166,1) 12%, rgba(61,209,145,1) 71%);
+
+  background: rgb(45, 157, 166);
+  background: linear-gradient(
+    90deg,
+    rgba(45, 157, 166, 1) 12%,
+    rgba(61, 209, 145, 1) 71%
+  );
 }
 
 #momentalniHodnota {
@@ -88,4 +92,12 @@ input::-moz-focus-inner {
 }
 .jinaBarva:active {
   background-color: rgb(58, 58, 58);
+}
+
+@media screen and (max-width: 600px) {
+  #kalkulacka {
+    margin: 0;
+    max-width: 100%;
+    border-radius: 0;
+  }
 }
