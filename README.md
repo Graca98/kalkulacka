@@ -1,4 +1,4 @@
 # kalkulacka
- Pokus o JS kalkulátor
+Basic JS kalkulátor (mouse + keys)
 
 https://graca98.github.io/kalkulacka/
